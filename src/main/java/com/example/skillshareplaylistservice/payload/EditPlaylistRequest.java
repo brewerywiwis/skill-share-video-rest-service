@@ -1,0 +1,18 @@
+package com.example.skillshareplaylistservice.payload;
+
+import lombok.Data;
+import lombok.NonNull;
+
+import java.util.List;
+
+@Data
+public class EditPlaylistRequest {
+    @NonNull
+    private String id;
+    @NonNull
+    private String title;
+    @NonNull
+    private String description;
+    @NonNull
+    private List<String> videoList;
+}

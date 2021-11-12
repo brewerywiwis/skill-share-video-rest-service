@@ -1,7 +1,6 @@
 package com.example.skillshareplaylistservice.controller;
 
 import com.example.skillshareplaylistservice.model.PlaylistModel;
-import com.example.skillshareplaylistservice.model.VideoModel;
 import com.example.skillshareplaylistservice.payload.CreatePlaylistRequest;
 import com.example.skillshareplaylistservice.payload.EditPlaylistRequest;
 import com.example.skillshareplaylistservice.service.PlaylistService;
@@ -43,9 +42,7 @@ public class PlaylistController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PutMapping("/edit")
     public PlaylistModel editPlaylist(@RequestBody EditPlaylistRequest body) {
-        PlaylistModel playlist = new PlaylistModel(body.getTitle(), body.getDescription(), body.getVideoList(), body.getPermission(), body.getUserId());
-        playlist.setId(body.getId());
-        return playlistService.editPlaylist(playlist);
+        return playlistService.editPlaylist(body);
     }
 
     @ResponseStatus(HttpStatus.ACCEPTED)

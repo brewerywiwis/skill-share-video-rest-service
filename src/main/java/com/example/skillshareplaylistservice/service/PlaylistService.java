@@ -2,6 +2,7 @@ package com.example.skillshareplaylistservice.service;
 
 import com.example.skillshareplaylistservice.model.PlaylistModel;
 import com.example.skillshareplaylistservice.model.VideoModel;
+import com.example.skillshareplaylistservice.payload.EditPlaylistRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,7 +15,7 @@ public interface PlaylistService {
 
     PlaylistModel createPlaylist(PlaylistModel playlistModel);
 
-    PlaylistModel editPlaylist(PlaylistModel playlistModel);
+    PlaylistModel editPlaylist(EditPlaylistRequest editPlaylistRequest);
 
     PlaylistModel deletePlaylist(String id, String userId);
 

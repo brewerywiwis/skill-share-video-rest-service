@@ -2,6 +2,7 @@ package com.example.skillshareplaylistservice.service.impl;
 
 import com.example.skillshareplaylistservice.model.PlaylistModel;
 import com.example.skillshareplaylistservice.model.VideoModel;
+import com.example.skillshareplaylistservice.payload.EditPlaylistRequest;
 import com.example.skillshareplaylistservice.repository.PlaylistRepository;
 import com.example.skillshareplaylistservice.repository.VideoRepository;
 import com.example.skillshareplaylistservice.service.PlaylistService;
@@ -45,14 +46,19 @@ public class PlaylistServiceImpl implements PlaylistService {
     }
 
     @Override
-    public PlaylistModel editPlaylist(PlaylistModel playlistModel) {
-        Optional<PlaylistModel> playlist = playlistRepository.findById(playlistModel.getId());
+    public PlaylistModel editPlaylist(EditPlaylistRequest editPlaylistRequest) {
+        Optional<PlaylistModel> playlist = playlistRepository.findById(editPlaylistRequest.getId());
         if (playlist.isEmpty()) {
             throw new RuntimeException("Playlist not found");
         }
-        if (!playlist.get().getCreatorId().equals(playlistModel.getCreatorId())) {
+        if (!playlist.get().getCreatorId().equals(editPlaylistRequest.getUserId())) {
             throw new RuntimeException("Cannot edit playlist");
         }
+        PlaylistModel playlistModel = playlist.get();
+        playlistModel.setDescription(editPlaylistRequest.getDescription());
+        playlistModel.setTitle(editPlaylistRequest.getTitle());
+        playlistModel.setPermission(editPlaylistRequest.getPermission());
+        playlistModel.setVideoList(editPlaylistRequest.getVideoList());
         return playlistRepository.save(playlistModel);
     }
 

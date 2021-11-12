@@ -1,31 +1,27 @@
 package com.example.skillshareplaylistservice.model;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NonNull;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
-import org.springframework.lang.Nullable;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
-@Document(collection = "playlists")
-public class PlaylistModel {
+@Document(collection = "comments")
+public class CommentModel {
     @MongoId(FieldType.OBJECT_ID)
     private String id;
     @NonNull
-    private String title;
+    private String videoId;
+    @NonNull
+    private String userId;
     @NonNull
     private String description;
-    @NonNull
-    private List<String> videoList;
-    @NonNull
-    private String permission;
-    @NonNull
-    private String creatorId;
     @CreatedDate
     private Date createdAt;
     @LastModifiedDate

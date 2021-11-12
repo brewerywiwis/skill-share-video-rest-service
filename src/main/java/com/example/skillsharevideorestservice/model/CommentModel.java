@@ -1,6 +1,5 @@
-package com.example.skillshareplaylistservice.model;
+package com.example.skillsharevideorestservice.model;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 import org.springframework.data.annotation.CreatedDate;

@@ -1,14 +1,14 @@
-package com.example.skillshareplaylistservice.payload;
+package com.example.skillsharevideorestservice.payload;
 
-import com.example.skillshareplaylistservice.model.VideoModel;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NonNull;
 
 import java.util.List;
 
 @Data
-public class CreatePlaylistRequest {
+public class EditPlaylistRequest {
+    @NonNull
+    private String id;
     @NonNull
     private String title;
     @NonNull
@@ -19,5 +19,4 @@ public class CreatePlaylistRequest {
     private String permission;
     @NonNull
     private String userId;
-
 }

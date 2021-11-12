@@ -1,4 +1,4 @@
-package com.example.skillshareplaylistservice.controller;
+package com.example.skillsharevideorestservice.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

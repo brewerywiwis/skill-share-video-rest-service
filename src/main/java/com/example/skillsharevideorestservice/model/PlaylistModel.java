@@ -1,4 +1,4 @@
-package com.example.skillshareplaylistservice.model;
+package com.example.skillsharevideorestservice.model;
 
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -6,7 +6,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
-import org.springframework.lang.Nullable;
 
 import java.util.Date;
 import java.util.List;

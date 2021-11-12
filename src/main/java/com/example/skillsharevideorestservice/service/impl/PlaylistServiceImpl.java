@@ -1,11 +1,10 @@
-package com.example.skillshareplaylistservice.service.impl;
+package com.example.skillsharevideorestservice.service.impl;
 
-import com.example.skillshareplaylistservice.model.PlaylistModel;
-import com.example.skillshareplaylistservice.model.VideoModel;
-import com.example.skillshareplaylistservice.payload.EditPlaylistRequest;
-import com.example.skillshareplaylistservice.repository.PlaylistRepository;
-import com.example.skillshareplaylistservice.repository.VideoRepository;
-import com.example.skillshareplaylistservice.service.PlaylistService;
+import com.example.skillsharevideorestservice.model.PlaylistModel;
+import com.example.skillsharevideorestservice.payload.EditPlaylistRequest;
+import com.example.skillsharevideorestservice.repository.PlaylistRepository;
+import com.example.skillsharevideorestservice.repository.VideoRepository;
+import com.example.skillsharevideorestservice.service.PlaylistService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Service;

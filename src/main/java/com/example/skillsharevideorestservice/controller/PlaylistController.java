@@ -1,9 +1,9 @@
-package com.example.skillshareplaylistservice.controller;
+package com.example.skillsharevideorestservice.controller;
 
-import com.example.skillshareplaylistservice.model.PlaylistModel;
-import com.example.skillshareplaylistservice.payload.CreatePlaylistRequest;
-import com.example.skillshareplaylistservice.payload.EditPlaylistRequest;
-import com.example.skillshareplaylistservice.service.PlaylistService;
+import com.example.skillsharevideorestservice.model.PlaylistModel;
+import com.example.skillsharevideorestservice.payload.CreatePlaylistRequest;
+import com.example.skillsharevideorestservice.payload.EditPlaylistRequest;
+import com.example.skillsharevideorestservice.service.PlaylistService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.http.HttpStatus;

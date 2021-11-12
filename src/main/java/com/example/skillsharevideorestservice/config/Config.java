@@ -1,4 +1,4 @@
-package com.example.skillshareplaylistservice.config;
+package com.example.skillsharevideorestservice.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

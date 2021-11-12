@@ -1,4 +1,4 @@
-package com.example.skillshareplaylistservice.config;
+package com.example.skillsharevideorestservice.config;
 
 import org.springframework.data.domain.AuditorAware;
 

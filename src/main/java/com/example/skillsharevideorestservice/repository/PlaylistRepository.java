@@ -1,7 +1,7 @@
-package com.example.skillshareplaylistservice.repository;
+package com.example.skillsharevideorestservice.repository;
 
 
-import com.example.skillshareplaylistservice.model.PlaylistModel;
+import com.example.skillsharevideorestservice.model.PlaylistModel;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

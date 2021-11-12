@@ -1,4 +1,4 @@
-package com.example.skillshareplaylistservice.payload;
+package com.example.skillsharevideorestservice.payload;
 
 import lombok.Data;
 import lombok.NonNull;
@@ -6,9 +6,7 @@ import lombok.NonNull;
 import java.util.List;
 
 @Data
-public class EditPlaylistRequest {
-    @NonNull
-    private String id;
+public class CreatePlaylistRequest {
     @NonNull
     private String title;
     @NonNull
@@ -19,4 +17,5 @@ public class EditPlaylistRequest {
     private String permission;
     @NonNull
     private String userId;
+
 }

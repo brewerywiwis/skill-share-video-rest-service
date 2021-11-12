@@ -1,8 +1,7 @@
-package com.example.skillshareplaylistservice.service;
+package com.example.skillsharevideorestservice.service;
 
-import com.example.skillshareplaylistservice.model.PlaylistModel;
-import com.example.skillshareplaylistservice.model.VideoModel;
-import com.example.skillshareplaylistservice.payload.EditPlaylistRequest;
+import com.example.skillsharevideorestservice.model.PlaylistModel;
+import com.example.skillsharevideorestservice.payload.EditPlaylistRequest;
 
 import java.util.List;
 import java.util.Optional;

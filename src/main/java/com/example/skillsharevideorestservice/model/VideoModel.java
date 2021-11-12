@@ -1,4 +1,4 @@
-package com.example.skillshareplaylistservice.model;
+package com.example.skillsharevideorestservice.model;
 
 import lombok.Data;
 import lombok.NonNull;

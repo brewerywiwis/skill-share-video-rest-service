@@ -35,12 +35,8 @@ public class PlaylistServiceImpl implements PlaylistService {
     }
 
     @Override
-    public List<VideoModel> getVideoByPlaylistId(String playlistId) throws RuntimeException {
-        Optional<PlaylistModel> playlist = playlistRepository.findById(playlistId);
-        if (playlist.isEmpty()) {
-            throw new RuntimeException("Playlist not found");
-        }
-        return (List<VideoModel>) videoRepository.findAllById(playlist.get().getVideoList());
+    public List<PlaylistModel> getPlaylistByCreatorId(String creatorId) {
+        return playlistRepository.findByCreatorId(creatorId);
     }
 
     @Override
@@ -54,14 +50,20 @@ public class PlaylistServiceImpl implements PlaylistService {
         if (playlist.isEmpty()) {
             throw new RuntimeException("Playlist not found");
         }
+        if (!playlist.get().getCreatorId().equals(playlistModel.getCreatorId())) {
+            throw new RuntimeException("Cannot edit playlist");
+        }
         return playlistRepository.save(playlistModel);
     }
 
     @Override
-    public PlaylistModel deletePlaylist(String id) {
+    public PlaylistModel deletePlaylist(String id, String userId) {
         Optional<PlaylistModel> playlist = playlistRepository.findById(id);
         if (playlist.isEmpty()) {
             throw new RuntimeException("Playlist not found");
+        }
+        if (!playlist.get().getCreatorId().equals(userId)) {
+            throw new RuntimeException("Cannot delete playlist");
         }
         playlistRepository.delete(playlist.get());
         return playlist.get();

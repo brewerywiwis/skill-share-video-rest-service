@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface PlaylistRepository extends MongoRepository<PlaylistModel, String> {
     List<PlaylistModel> findByTitleLike(String title);
+    List<PlaylistModel> findByCreatorId(String creatorId);
 }

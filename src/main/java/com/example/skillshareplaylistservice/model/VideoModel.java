@@ -3,6 +3,7 @@ package com.example.skillshareplaylistservice.model;
 import lombok.Data;
 import lombok.NonNull;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
@@ -14,6 +15,7 @@ public class VideoModel {
     @MongoId(FieldType.OBJECT_ID)
     private String id;
     @NonNull
+    @Field("video_id")
     private String videoId;
     @NonNull
     private String encoding;

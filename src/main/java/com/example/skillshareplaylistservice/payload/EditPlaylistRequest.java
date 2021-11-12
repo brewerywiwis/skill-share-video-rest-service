@@ -15,4 +15,8 @@ public class EditPlaylistRequest {
     private String description;
     @NonNull
     private List<String> videoList;
+    @NonNull
+    private String permission;
+    @NonNull
+    private String userId;
 }

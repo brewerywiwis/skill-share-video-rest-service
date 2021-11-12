@@ -1,8 +1,8 @@
 package com.example.skillshareplaylistservice.controller;
 
 import com.example.skillshareplaylistservice.model.PlaylistModel;
+import com.example.skillshareplaylistservice.model.VideoModel;
 import com.example.skillshareplaylistservice.payload.CreatePlaylistRequest;
-import com.example.skillshareplaylistservice.payload.DeletePlaylistRequest;
 import com.example.skillshareplaylistservice.payload.EditPlaylistRequest;
 import com.example.skillshareplaylistservice.service.PlaylistService;
 import lombok.AllArgsConstructor;
@@ -23,17 +23,19 @@ public class PlaylistController {
 
     @PostMapping("/playlist")
     public ResponseEntity<PlaylistModel> createPlaylist(@RequestBody CreatePlaylistRequest body) {
-        PlaylistModel playlist = new PlaylistModel(body.getTitle(), body.getDescription(), body.getVideoList());
+        PlaylistModel playlist = new PlaylistModel(body.getTitle(), body.getDescription(), body.getVideoList(), body.getPermission(), body.getUserId());
         return new ResponseEntity<>(playlistService.createPlaylist(playlist), HttpStatus.CREATED);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping()
-    public List<PlaylistModel> getPlaylist(@Nullable @RequestParam String id, @Nullable @RequestParam String title) {
+    public List<PlaylistModel> getPlaylist(@Nullable @RequestParam String id, @Nullable @RequestParam String title, @Nullable @RequestParam String creatorId) {
         if (id != null && !id.isBlank()) {
             return List.of(playlistService.getPlaylistById(id).orElseThrow());
         } else if (title != null && !title.isBlank()) {
             return playlistService.getPlaylistByTitle(title);
+        } else if (creatorId != null && !creatorId.isBlank()) {
+            return playlistService.getPlaylistByCreatorId(creatorId);
         }
         return playlistService.getAllPlaylist();
     }
@@ -41,16 +43,15 @@ public class PlaylistController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PutMapping("/edit")
     public PlaylistModel editPlaylist(@RequestBody EditPlaylistRequest body) {
-        PlaylistModel playlist = new PlaylistModel(body.getTitle(), body.getDescription(), body.getVideoList());
+        PlaylistModel playlist = new PlaylistModel(body.getTitle(), body.getDescription(), body.getVideoList(), body.getPermission(), body.getUserId());
         playlist.setId(body.getId());
         return playlistService.editPlaylist(playlist);
     }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @DeleteMapping("/delete")
-    public PlaylistModel deletePlaylist(@RequestParam String id) {
-        return playlistService.deletePlaylist(id);
+    public PlaylistModel deletePlaylist(@RequestParam String id, @RequestParam String userId) {
+        return playlistService.deletePlaylist(id, userId);
     }
-
 
 }

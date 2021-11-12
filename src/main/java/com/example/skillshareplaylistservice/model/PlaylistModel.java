@@ -19,4 +19,8 @@ public class PlaylistModel {
     private String description;
     @NonNull
     private List<String> videoList;
+    @NonNull
+    private String permission;
+    @NonNull
+    private String creatorId;
 }

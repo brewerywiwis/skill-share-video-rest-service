@@ -17,5 +17,4 @@ public class CreatePlaylistRequest {
     private String permission;
     @NonNull
     private String userId;
-
 }
